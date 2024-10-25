@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Página Principal{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='css/index_main_usuario.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div class="content_nome_page">
+      <div class="nome_page">
+        <h1>Shows Disponiveis</h1>
+      </div><!--nome_page-->
+    </div><!--content_nome_page-->
+    <div class="all_shows">
+      {% for show in shows.items %}
+      <div class="show_style">
+        <img src="{{ url_for('index_gerenciamento.exibir_imagem', show_id=show.id) }}" alt="show">
+        <h2>{{ show.title }}</h2>
+        <p class="local">{{ show.local }}</p>
+        <p class="description">{{ show.description }}</p>
+
+        <div class="rodape">
+          <p class="preco">{{ show.preco }} R$</p>
+          <a href="{{ url_for('index_show_interface.index_show_interface_generator', show_id=show.id) }}">Detalhes</a>
+        </div>
+      </div><!--show_style-->
+      {% endfor %}
+    </div><!--all_shows-->
+
+  <div class="paginacao">
+    {% if shows.has_prev %}
+      <a href="{{ url_for('index_usuario.index_usuario_generator', page=shows.prev_num) }}">Voltar</a>
+    {% endif %}
+    
+    <span>Página {{ shows.page }} de {{ shows.pages }}</span>
+
+    {% if shows.has_next %}
+      <a href="{{ url_for('index_usuario.index_usuario_generator', page=shows.next_num) }}">Próxima</a>
+    {% endif %}
+  </div>
+{% endblock %}

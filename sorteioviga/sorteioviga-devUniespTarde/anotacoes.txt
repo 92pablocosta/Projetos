@@ -1,0 +1,35 @@
+Observações
+
+Introdução
+O projeto “Sorteio Viga” serve como exemplo prático para mostrar todo o fluxo de criação de uma API REST usando Spring.
+
+Introdução ao Ecossistema Spring
+Classes anotadas com @SpringBootApplication, @Service, @Repository, @RestController demonstram como o ecossistema se organiza.
+O Spring Boot auto-configura vários componentes a partir das dependências adicionadas no pom.xml.
+
+API REST e Verbos HTTP
+Métodos nos controllers (@GetMapping, @PostMapping, @PutMapping, @DeleteMapping) ilustram verbos HTTP.
+Uso de ResponseEntity para retornar status apropriados.
+
+Clientes HTTP
+Você pode testar os endpoints com Postman, cURL ou qualquer outro cliente.
+Por exemplo, GET http://localhost:8080/usuarios retorna todos os usuários em formato JSON.
+
+Revisão Java (Sintaxe e OO)
+A estrutura de entidades (models) mostra classes com atributos, construtores, getters e setters (via Lombok).
+Relações 1:N e N:1 reforçam a composição dentro de OO.
+
+Gerenciamento de Dependências com Maven
+O pom.xml ilustra como adicionamos bibliotecas (starters do Spring, Postgres, etc.) sem precisar baixar manualmente.
+
+Spring Boot
+O projeto todo roda a partir de uma única classe main (SorteioVigaApplication) que inicializa o contexto do Spring Boot.
+Configurações automatizadas para servidor web e JPA/Hibernate.
+
+Spring Data
+Interfaces extends JpaRepository demonstram como o Spring Data faz operações CRUD sem boilerplate de SQL.
+Métodos customizados (existsByEmail) mostram como gerar queries personalizadas.
+
+Spring MVC
+Os controllers são classes @RestController, cada método mapeado por @RequestMapping e derivados (@GetMapping, etc.).
+A serialização de objetos Java em JSON e vice-versa é configurada automaticamente.

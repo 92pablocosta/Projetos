@@ -10,4 +10,8 @@ public interface UsuarioService {
 
     Usuario buscarPorId(Long id);
 
+    Usuario atualizarUsuario(Long id, Usuario usuario); // Já existe na service.
+
+    void deletarUsuario(Long id);
+
 }

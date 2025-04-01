@@ -24,7 +24,11 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuarioRepository.save(usuario);
     }
 
-
+    @Override
+    public Usuario buscarPorId(Long id) {
+        return usuarioRepository.findById(id)
+        .orElseThrow(() -> new NegocioException("Usuário não encontrado com ID: " + id));
+    }
 
     @Override
     public List<Usuario> listarUsuarios() {
